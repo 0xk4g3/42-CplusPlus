@@ -2,13 +2,13 @@
 # define CONTACT_HPP
 
  
+#include <cctype>
+#include <cstdlib>
+#include <ostream>
+#include <iomanip>
+#include <iostream>
 #include <cstdio>
 #include <string>
-#include <cstdio>
-
-
-
-
 
 class Contact  { 
      

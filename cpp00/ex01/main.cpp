@@ -1,7 +1,6 @@
 
 
 #include "./PhoneBook.hpp"
-#include <cstdio>
 
 
 
@@ -9,29 +8,28 @@
 
 
 
-int main(){
-     
-     PhoneBook book;
-     std::string commnad;
 
-     while (true) {
-
-              std::cout << "Enter command (ADD , SEARCH , EXIT) : ";
-
-               if (std::cin.eof()) 
-                         break;
-                  
-             std::getline(std::cin, commnad);  
-              if(commnad == "ADD")
-                book.AddContact();
-              else if (commnad == "SEARCH")
-                book.Search();
-              else if (commnad == "EXIT")
-                break;
-              else
-                std::cout << "Invalid command" << std::endl;
-     
-     }
-     return 0;
-
+int main() {
+    PhoneBook book;
+    std::string command;
+    
+    while (true) {
+        std::cout << "Enter command (ADD, SEARCH, EXIT): ";
+        
+        std::getline(std::cin, command);
+        if (std::cin.eof()) {
+            std::cout << std::endl;
+            break;
+        }
+        
+        if (command == "ADD")
+            book.AddContact();
+        else if (command == "SEARCH")
+            book.Search();
+        else if (command == "EXIT")
+            break;
+        else
+            std::cout << "Invalid command" << std::endl;
+    }
+    return 0;
 }

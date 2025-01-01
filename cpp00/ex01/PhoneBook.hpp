@@ -2,12 +2,7 @@
 # define PHONEBOOK_HPP
 
 
-#include <cstddef>
-#include <cstdio>
-#include <iomanip>
-#include <iostream>
-#include <string>
-#include <cstdio>
+
 
 #include "Contact.hpp"
 
@@ -22,7 +17,7 @@ class PhoneBook {
       public: 
       
       PhoneBook  ();
-      bool isValidInput(const std::string& input);
+      bool isValidInput(const std::string& input, int status);
       std::string truncateText(const std::string& text) const;
     void AddContact();
     void Search();
