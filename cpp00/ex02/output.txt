@@ -1,6 +1,0 @@
-[1;33mRunning tests...[0m
-[0;31mTest failed! Differences found:[0m
-[1;33mShowing line by line differences:[0m
-YOUR OUTPUT: [timestamp] index:2;p_amount:957;deposit:564;amount:1521;nb_d
-EXPECTED  : 	[timestamp] index:2;p_amount:957;deposit:564;amount:1521;nb_d
----
