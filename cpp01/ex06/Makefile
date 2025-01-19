@@ -19,7 +19,7 @@ define BANNER
 endef
 export BANNER
 
-NAME		= 	HarlFilter
+NAME		= 	harlFilter
 	
 CC			= c++
 FLAGS		= -Wall -Wextra -Werror  -std=c++98
