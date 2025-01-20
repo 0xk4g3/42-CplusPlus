@@ -7,6 +7,7 @@ HumanB::HumanB(std::string human):name(human) , weapon(NULL){
 
 }
 
+HumanB::~HumanB(){};
 
 
 void HumanB::attack(){ 

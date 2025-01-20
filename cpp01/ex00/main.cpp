@@ -1,7 +1,8 @@
 
 
 #include "Zombie.hpp"
-
+#include <exception>
+#include <stdexcept>
 
 
 
@@ -20,13 +21,10 @@ int main(){
               delete  NewZombie[i];
         }
        delete  [] NewZombie;
+    
      randomChump("bendjaballah");
      randomChump("bendjaballah");
-
      randomChump("bendjaballah");
-
-     randomChump("bendjaballah");
-
      randomChump("bendjaballah");
      randomChump("bendjaballah");
 

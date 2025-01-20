@@ -51,7 +51,7 @@ clean:
 fclean: clean
 	@$(RM) $(NAME)
 	@printf "$(YELLOW)- Executable cleaned!$(RESET)\n"
-	@echo "$$BANNER"
+	
 
 re: fclean all
 

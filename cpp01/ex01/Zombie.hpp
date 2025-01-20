@@ -2,10 +2,10 @@
 
 #ifndef    ZOMBIE_HPP
 # define  ZOMBIE_HPP
-#define N 23
+#define N 4
 
 
-#include <cstdio>
+
 #include <iostream>
 
 class Zombie {
