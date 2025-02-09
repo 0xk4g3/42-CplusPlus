@@ -1,18 +1,17 @@
 
 define BANNER
 
- ______  _____  ___  ___  ____  _____ ______      
-|___  / |  _  | |  \/  | |  _ \|_   _|  ____|    
-   / /  | | | | | .  . | | |_) | | | | |__       
-  / /   | | | | | |\/| | |  _ <  | | |  __|      
-./ /___ \ \_/ / | |  | | | |_) |_| |_| |____     
-\_____/  \___/  \_|  |_/ |____/|_____|______|    
+ _____ _____  _______ ____  
+|  ___|_ _\ \/ / ____|  _ \ 
+| |_   | | \  /|  _| | | | |
+|  _|  | | /  \| |___| |_| |
+|_|   |___/_/\_\_____|____/  
                                                   
         Made with love by: hbendjab     
 endef
 export BANNER
 
-NAME		= zombie
+NAME		= Fixed
 	
 CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
@@ -20,7 +19,7 @@ RM			= rm -rf
 
 OBJDIR		= .objfiles
 
-FILES		= main Zombie newZombie randomChump
+FILES		= main Fixed
 
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
@@ -33,7 +32,7 @@ RESET		=	\e[0m
 CURSIVE		=	\e[33;3m
 
 all: $(NAME)
-	@printf "$(GREEN)- Zombie ready!$(RESET)\n"
+	@printf "$(GREEN)- Fixed ready!$(RESET)\n"
 	@echo "$$BANNER"
 
 $(NAME): $(OBJ)

@@ -1,19 +1,41 @@
+#include "./Fixed.hpp"
+#include <filesystem>
 
 
 
-#include <cstdio>
 
 
 
+Fixed::Fixed():_fixedPointValue(0){
+   std::cout << "Default constructor called" << std::endl;
+}
 
 
-int main(){
-     
+Fixed::Fixed(const Fixed &src){ 
+  std::cout << "Copy constructor called" << std::endl;
+  this->_fixedPointValue = src.getRawBits(); 
+}
 
-     if((0.1 + 0.2) == 0.3)
-       printf("it's true yeah equal \n");
-    else
-     printf("NOT equal\n");
+Fixed &Fixed::operator=(const Fixed &src){ 
+    std::cout << "Copy assignment operator called " << std::endl;
+    if(this != &src){ 
+      this->_fixedPointValue = src.getRawBits();
+    }
+  return *this;
+}
 
-    return 0;
+int Fixed::getRawBits(void)const { 
+
+  std::cout << "getRawBits member function called" << std::endl;
+  return this->_fixedPointValue;
+}
+
+
+void Fixed::setRawBits(int const raw){ 
+     std::cout << "setRawBits member funciton called" << std::endl;
+     this->_fixedPointValue = raw;
+}
+
+Fixed::~Fixed(){
+   std::cout << "Destructor called" << std::endl;
 }
