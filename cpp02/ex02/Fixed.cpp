@@ -12,30 +12,30 @@
  // constructors  and destructor
 
 Fixed::Fixed():_fixedPointValue(0){
-    std::cout << "The constructor called"  << std::endl;
+  
 }
 
 
 
 Fixed::Fixed(const Fixed &src ){
-     std::cout << "Copy constructor called" << std::endl;
+   
      this->_fixedPointValue = src._fixedPointValue;
 }
 
 Fixed::~Fixed(){
-     std::cout << "The deconstructor called" << std::endl;
+
 }
 
 
 Fixed::Fixed(const float number){
      
-      std::cout << "Float constructor called" << std::endl;
+    
       this->_fixedPointValue  = roundf(number * (1 << _fractionalBits));
 }
 
 
 Fixed::Fixed(const int number){
-     std::cout << "Integer constructor called" << std::endl;
+ 
      this->_fixedPointValue = number <<  _fractionalBits;
 
 }
@@ -44,7 +44,7 @@ Fixed::Fixed(const int number){
 
 Fixed &Fixed::operator=(const Fixed &src)
 { 
-    std::cout <<  "Copy assignment operator called" << std::endl;
+
 
      if(this != &src){
          this->_fixedPointValue = src._fixedPointValue;
@@ -65,22 +65,120 @@ int Fixed::toInt(void)const {
 
 // comparison operators;
 
-bool Fixed::operator>(const Fixed &src ) const  {
-      return this->getRawBits() > 
+bool Fixed::operator>(const Fixed &src) const{
+          return this->getRawBits() > src._fixedPointValue;
+
+}
+bool Fixed::operator<(const Fixed &src) const{
+          return this->getRawBits()  < src._fixedPointValue;
+}
+bool Fixed::operator>=(const Fixed &src) const{
+          return this->getRawBits()  >= src._fixedPointValue;
+
+
+}
+bool Fixed::operator<=(const Fixed &src) const{
+          return this->getRawBits()  <= src._fixedPointValue;
+
+}
+
+bool Fixed::operator!=(const Fixed &src)const{
+          return this->getRawBits() != src._fixedPointValue; 
+
+}
+bool Fixed::operator==(const Fixed &src)const{
+          return this->getRawBits()  == src._fixedPointValue;
+
+}
+
+// arithemtic operators 
+
+Fixed Fixed::operator+(const Fixed &src) const {
+    Fixed result;
+    result._fixedPointValue = this->_fixedPointValue + src._fixedPointValue;
+    return result;
+}
+
+Fixed Fixed::operator-(const Fixed &src) const {
+    Fixed result;
+    result._fixedPointValue = this->_fixedPointValue - src._fixedPointValue;
+    return result;
+}
+
+Fixed Fixed::operator*(const Fixed &src) const {
+    Fixed result;
+
+    result._fixedPointValue = (this->_fixedPointValue * src._fixedPointValue) >> _fractionalBits;
+    return result;
+}
+
+Fixed Fixed::operator/(const Fixed &src) const {
+    Fixed result;
+
+   result._fixedPointValue = (this->_fixedPointValue << _fractionalBits) / src._fixedPointValue;
+    return result;
+}
+
+Fixed& Fixed::operator++(){
+     this->_fixedPointValue += 1;
+
+     return *this;
+}
+
+Fixed Fixed::operator++(int){
+     Fixed temp(*this);
+     operator++();
+     return temp;
+
+}
+
+Fixed& Fixed::operator--(){
+    std::cout << this->_fixedPointValue << std::endl;
+     this->_fixedPointValue -= 1;
+    return *this;
+}
+
+Fixed Fixed::operator--(int){
+     Fixed temp2(*this);
+     operator--();
+     return temp2;
 }
 
 // getRawbits 
 int Fixed::getRawBits(void)const { 
 
-  std::cout << "getRawBits member function called" << std::endl;
+  
   return this->_fixedPointValue;
 }
 
 void Fixed::setRawBits(int const raw){ 
-     std::cout << "setRawBits member funciton called" << std::endl;
+
      this->_fixedPointValue = raw;
 }
 
+// comparing min - max 
+
+
+ Fixed& Fixed::min(Fixed &a , Fixed &b){
+
+        return  a._fixedPointValue < b._fixedPointValue ?  a : b;
+}
+
+const Fixed& Fixed::min(const Fixed &a , const Fixed &b){
+        
+    return  a._fixedPointValue < b._fixedPointValue ?  a : b;
+}
+
+
+Fixed& Fixed::max(Fixed &a , Fixed &b){
+     
+      return a._fixedPointValue  >  b._fixedPointValue ? a : b;
+}
+
+const   Fixed&  Fixed::max(const  Fixed &a ,const Fixed &b){
+     
+      return a._fixedPointValue  >  b._fixedPointValue ? a : b;
+}
 // overload for the printing
 
 std::ostream &operator << (std::ostream &out , const Fixed &Fixed){
