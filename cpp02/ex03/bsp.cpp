@@ -1,7 +1,7 @@
 
 #include  "Point.hpp"
 
-
+ 
 static Fixed triangle_area(Point const &a , Point const &b , Point const &c){
         
                 return Fixed(0.5f) * 

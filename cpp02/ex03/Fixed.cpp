@@ -8,7 +8,6 @@
 
 
 
-
  // constructors  and destructor
 
 Fixed::Fixed():_fixedPointValue(0){
