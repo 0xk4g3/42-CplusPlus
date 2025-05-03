@@ -13,7 +13,7 @@ class ClapTrap{
             std::string _Name;
             unsigned int _HitPoint;
             unsigned int _EnergyPoint;
-            unsigned int  _AttackDemage;
+            unsigned int  _AttackDamage;
         public:
             ClapTrap(std::string name);
             /* Strat of the orthodox */

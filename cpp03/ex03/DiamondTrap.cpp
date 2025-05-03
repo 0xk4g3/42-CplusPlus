@@ -12,7 +12,7 @@ DiamondTrap::DiamondTrap(std::string name):
     ScavTrap(name),
     _name(name)
 {
-    this->_AttackDemage = FragTrap::_AttackDemage;
+    this->_AttackDamage = FragTrap::_AttackDamage;
     this->_EnergyPoint =  ScavTrap::_EnergyPoint;
     this->_HitPoint = FragTrap::_HitPoint;
 std::cout << "DiamondTrap Constructor called for " << name << std::endl;

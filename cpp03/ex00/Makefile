@@ -1,20 +1,18 @@
 
 define BANNER
-
- _____ _____  _______ ____  
-|  ___|_ _\ \/ / ____|  _ \ 
-| |_   | | \  /|  _| | | | |
-|  _|  | | /  \| |___| |_| |
-|_|   |___/_/\_\_____|____/  
-                                                  
+             ___  __    ___            __   ___ 
+| |\ | |__| |__  |__) |  |   /\  |\ | /  ` |__  
+| | \| |  | |___ |  \ |  |  /~~\ | \| \__, |___ 
+                                                                                               
         Made with love by: hbendjab     
 endef
+
 export BANNER
 
 NAME		= ClapTrap
 	
 CC			= c++
-FLAGS		= -std=c++98
+FLAGS		= -Wall -Wextra -Werror -std=c++98
 RM			= rm -rf
 
 OBJDIR		= .objfiles

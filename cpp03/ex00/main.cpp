@@ -1,20 +1,16 @@
-
-
-
 #include "ClapTrap.hpp"
 
-
-
-
-int main(){ 
-
+int main()
+{
+    ClapTrap clap("CL4P-TP");
     
-     ClapTrap test("haithem");
-     test.attack("monster");
-     test.takeDamage(10);
-     test.takeDamage(5);
-     test.beRepaired(10);
-     test.takeDamage(10);
-        return 0;
+    clap.attack("Target");
+    clap.takeDamage(5);
+    clap.beRepaired(3);
+    clap.attack("Another Target");
+    clap.takeDamage(10);
+    clap.beRepaired(5);
+    clap.attack("Final Target");
+    
+    return 0;
 }
-

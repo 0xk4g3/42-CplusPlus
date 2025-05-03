@@ -1,14 +1,14 @@
 
-
 define BANNER
-             ___  __    ___            __   ___ 
-| |\ | |__| |__  |__) |  |   /\  |\ | /  ` |__  
-| | \| |  | |___ |  \ |  |  /~~\ | \| \__, |___ 
-                                                                                               
+
+ _____ _____  _______ ____  
+|  ___|_ _\ \/ / ____|  _ \ 
+| |_   | | \  /|  _| | | | |
+|  _|  | | /  \| |___| |_| |
+|_|   |___/_/\_\_____|____/  
+                                                  
         Made with love by: hbendjab     
 endef
-
-
 export BANNER
 
 NAME		= ClapTrap
@@ -19,7 +19,8 @@ RM			= rm -rf
 
 OBJDIR		= .objfiles
 
-FILES		= main ClapTrap ScavTrap FragTrap DiamondTrap
+FILES		= main Animal Cat Dog WrongAnimal WrongCat
+
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
 

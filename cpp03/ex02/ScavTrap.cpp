@@ -8,7 +8,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name){
      
       this->_HitPoint = 100;
     this->_EnergyPoint = 50;
-    this->_AttackDemage = 20;
+    this->_AttackDamage = 20;
     
     std::cout << "ScavTrap Constructor called for " << name << std::endl;
 }
@@ -37,7 +37,7 @@ void ScavTrap::attack(const std::string& target) {
     if (_EnergyPoint > 0 && _HitPoint > 0) {
         _EnergyPoint--;
         std::cout << "ScavTrap " << _Name << " viciously attacks " << target 
-                  << ", causing " << _AttackDemage << " points of damage!" << std::endl;
+                  << ", causing " << _AttackDamage << " points of damage!" << std::endl;
     } else {
         std::cout << "ScavTrap " << _Name << " is too exhausted to attack!" << std::endl;
     }

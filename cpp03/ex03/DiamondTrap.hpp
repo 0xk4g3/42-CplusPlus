@@ -5,7 +5,7 @@
 
 #include "FragTrap.hpp"
 
-class DiamondTrap : public FragTrap , public ScavTrap{
+class DiamondTrap : public virtual FragTrap , public virtual ScavTrap{
         private:
             std::string _name;
         public:

@@ -5,7 +5,7 @@
 
 //init the Constructor
 
-ClapTrap::ClapTrap(std::string name):_Name(name),_HitPoint(10),_EnergyPoint(10),_AttackDemage(0){
+ClapTrap::ClapTrap(std::string name):_Name(name),_HitPoint(10),_EnergyPoint(10),_AttackDamage(0){
     
     std::cout << "ClapTrap Constructor called for " << name  << std::endl;
 
@@ -16,7 +16,7 @@ ClapTrap::ClapTrap(const ClapTrap &src){
     std::cout << "The copy constructor called"  << std::endl;
     this->_Name = src._Name;
     this->_EnergyPoint = src._EnergyPoint;
-    this->_AttackDemage = src._AttackDemage;
+    this->_AttackDamage = src._AttackDamage;
     this->_HitPoint = src._HitPoint;
 
 }
@@ -30,7 +30,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &src){
         {
          this->_Name = src._Name;
          this->_EnergyPoint = src._EnergyPoint;
-         this->_AttackDemage = src._AttackDemage;
+         this->_AttackDamage = src._AttackDamage;
          this->_HitPoint = src._HitPoint;
          }
         return *this;
@@ -43,9 +43,9 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &src){
 void ClapTrap::attack(const std::string& target){
     
      
-     if(_EnergyPoint > 0 || _HitPoint > 0 ){
+     if(_EnergyPoint > 0 &&  _HitPoint > 0 ){
          _EnergyPoint--;
-           std::cout << "ClapTrap " << _Name << " attacks " << target << ", causing " << _AttackDemage << " points of damage!" << std::endl;
+           std::cout << "ClapTrap " << _Name << " attacks " << target << ", causing " << _AttackDamage << " points of damage!" << std::endl;
      }else{
 
         std::cout << "ClapTrap " << _Name << " can't attack: no energy or hit points left!" << std::endl;
@@ -59,7 +59,7 @@ void ClapTrap::takeDamage(unsigned int amount){
   
      if(_HitPoint <= amount)
         _HitPoint =0;
-     else 
+     else
         _HitPoint -= amount;
  
      std::cout << "ClapTrap " << _Name << " takes " << amount << " points of damage! Hit points remaining: " << _HitPoint << std::endl;

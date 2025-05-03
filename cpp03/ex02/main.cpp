@@ -1,24 +1,24 @@
-
-
-
 #include "FragTrap.hpp"
 
-
-
-//TEST: we need to test all the test cases relate
-/// to this 
-
-
-
-int main(){ 
-
-       FragTrap test("haithem");
-       test.attack("monster"); 
-       test.takeDamage(100);
-       test.highFivesGuys();
-       //test.guardGate();
-       test.beRepaired(10);
-
-        return 0;
+int main()
+{
+    ClapTrap clap("CL4P-TP");
+    ScavTrap scav("SC4V-TP");
+    FragTrap frag("FR4G-TP");
+    
+    clap.attack("Target");
+    clap.takeDamage(5);
+    clap.beRepaired(3);
+    
+    scav.attack("Enemy");
+    scav.takeDamage(20);
+    scav.beRepaired(15);
+    scav.guardGate();
+    
+    frag.attack("Boss");
+    frag.takeDamage(25);
+    frag.beRepaired(20);
+    frag.highFivesGuys();
+    
+    return 0;
 }
-
