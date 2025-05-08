@@ -4,6 +4,7 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
+
 int main()
 {
     // Test from the subject
@@ -14,7 +15,7 @@ int main()
     
     std::cout << j->getType() << " " << std::endl;
     std::cout << i->getType() << " " << std::endl;
-    i->makeSound(); // will output the cat sound!
+    i->makeSound();  
     j->makeSound();
     meta->makeSound();
     
@@ -27,13 +28,12 @@ int main()
     const WrongAnimal* wrongCat = new WrongCat();
     
     std::cout << wrongCat->getType() << " " << std::endl;
-    wrongCat->makeSound();  // Will output WrongAnimal sound, not WrongCat!
+    wrongCat->makeSound();  
     wrongMeta->makeSound();
     
     delete wrongMeta;
     delete wrongCat;
     
-    // Additional tests to demonstrate the concept
     std::cout << "\n=== Additional Tests ===" << std::endl;
     
     // Test 1: Direct WrongCat object (not through pointer)
@@ -43,12 +43,12 @@ int main()
     // Test 2: Demonstrating the problem with non-virtual destructors
     std::cout << "\n=== Testing destructors ===" << std::endl;
     Animal* animal = new Dog();
-    delete animal;  // Correctly calls Dog destructor then Animal destructor
+    delete animal;  
     
     std::cout << std::endl;
     
     WrongAnimal* wrongAnimal = new WrongCat();
-    delete wrongAnimal;  // Only calls WrongAnimal destructor! (memory leak potential)
+    delete wrongAnimal; 
     
     return 0;
 }
