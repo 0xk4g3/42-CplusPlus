@@ -1,9 +1,8 @@
-#ifndef FROM_HPP
-#define FROM_HPP
+#ifndef FORM_HPP
+#define FORM_HPP
 
-#include "Bureaucrat.hpp"
-
-
+class Bureaucrat;
+#include <iostream>
 class Form{
 	 
 		private:
@@ -16,7 +15,7 @@ class Form{
 		Form(const std::string& name ,const int grade_sign , const int grade_execute);
 		Form(const Form& other);
 		Form& operator=(const Form& other);
-      //  ~Form();
+        ~Form();
 		// member functions 
 		 void beSigned(const Bureaucrat& Bureaucrat);
 		// Geters
@@ -27,15 +26,12 @@ class Form{
 
 		//exception
 		class GradeTooHighException : public std::exception {
-	       
-			virtual const char* what() const throw() { 
-				return "message should be here";
-			}
+            public:
+			virtual const char* what() const throw();
 		};
 		class GradeTooLowException: public std::exception{ 
-			virtual const char* what() const throw(){ 
-				return  "Low";
-			}
+            public:
+            virtual const char* what() const throw();
 			
 		};
 };
