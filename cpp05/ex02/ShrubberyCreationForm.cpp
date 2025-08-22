@@ -1,13 +1,14 @@
 #include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp"
+#include <iostream>
 ShrubberyCreationForm::ShrubberyCreationForm()
     : AForm("shrubbery creation", 145, 137), _target("Default") {
 
   std::cout << "ShrubberyCreationForm default constructor" << std::endl;
 }
 
-beryCreationForm(const std::string &target)
-    : AForm("shrubbery creation", 145, 137), , _target(target) {
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
+    : AForm("shrubbery creation", 145, 137), _target(target) {
 
   std::cout << "ShrubberyCreationForm parameterized constructor" << std::endl;
 }
@@ -23,10 +24,11 @@ ShrubberyCreationForm::operator=(const ShrubberyCreationForm &src) {
 
   if (this != &src) {
 
-    Form::operator=(src);
+    AForm::operator=(src);
   }
   return *this;
 }
+
 void ShrubberyCreationForm::execute(const Bureaucrat &src) const {
 
   if (!this->getIsSigned())
@@ -34,6 +36,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat &src) const {
   if (src.getGrade() > this->getGradeExecute())
     throw AForm::GradeTooLowException();
   std::ofstream shrubberyFile(_target + "_shrubbery.txt");
+
   if (shrubberyFile.is_open()) {
 
     shrubberyFile << "         /\\" << std::endl;
@@ -49,7 +52,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat &src) const {
     shrubberyFile << "        ||||" << std::endl;
     shrubberyFile << "        ||||" << std::endl;
   } else {
-    throw std::exception();
+    throw std::runtime_error("Failed to create shrubbery file");
   }
 }
 ShrubberyCreationForm::~ShrubberyCreationForm() {

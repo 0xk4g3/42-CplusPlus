@@ -18,7 +18,7 @@ RM			= rm -rf
 
 OBJDIR		= .objfiles
 
-FILES		= main Bureaucrat AForm PresidentialPardonForm
+FILES		= main Bureaucrat AForm ShrubberyCreationForm RobotomyRequestForm PresidentialPardonForm
 .rw-r--r--@  5 Aug 22:39  PresidentialPardonForm.cpp
 .rw-r--r--@  5 Aug 22:38  PresidentialPardonForm.hpp
 .rw-r--r--@  5 Aug 22:38  RobotomyRequestForm.cpp

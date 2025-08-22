@@ -4,13 +4,17 @@
 #include "AForm.hpp"
 
 class PresidentialPardonForm : public AForm {
+
 private:
-    // Your private members here
+  const std::string _target;
 
 public:
-    // Your constructors, destructor, etc.
-    
-    // Your member functions here
+  PresidentialPardonForm();
+  PresidentialPardonForm(const std::string &target);
+  PresidentialPardonForm(const PresidentialPardonForm &src);
+  PresidentialPardonForm &operator=(const PresidentialPardonForm &src);
+  void execute(const Bureaucrat &bureaucrat) const;
+  ~PresidentialPardonForm();
 };
 
 #endif
