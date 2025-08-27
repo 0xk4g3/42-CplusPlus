@@ -61,6 +61,13 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other){
        }
      return *this;
 }
+const char * Bureaucrat::GradeTooHighException::what() const  throw() {
+        return "Grade is too high! (Must be between 1 and 150)";
+} 
+const char * Bureaucrat::GradeTooLowExecption::what() const  throw() {
+        return "Grade is too low! (Must be between 1 and 150)";
+} 
+
 Bureaucrat::Bureaucrat(const Bureaucrat& other):_name(other._name),_grade(other._grade){ 
              
      std::cout << "Bureaucrat copy constructor called" << std::endl;

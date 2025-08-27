@@ -54,9 +54,9 @@ int main(){
             std::cout << "After increment: " << worker << std::endl;
         }
 
-        // This should throw an exception (grade would become 0)
+       
         worker.incrementGrade();
-        worker.incrementGrade(); // This won't execute
+        worker.incrementGrade(); 
         
     } catch (Bureaucrat::GradeTooHighException &e) {
         std::cout << "Exception during increment: " << e.what() << std::endl;
@@ -74,9 +74,9 @@ int main(){
             std::cout << "After decrement: " << assistant << std::endl;
         }
 
-        // This should throw an exception (grade would become 151)
+       
         assistant.decrementGrade();
-        assistant.decrementGrade(); // This won't execute
+        assistant.decrementGrade();
         
     } catch (Bureaucrat::GradeTooLowExecption &e) {
         std::cout << "Exception during decrement: " << e.what() << std::endl;
@@ -89,11 +89,11 @@ int main(){
         Bureaucrat original("Original", 42);
         std::cout << "Original: " << original << std::endl;
 
-        // Test copy constructor
+     
         Bureaucrat copy(original);
         std::cout << "Copy: " << copy << std::endl;
 
-        // Test assignment operator
+     
         Bureaucrat assigned("TempName", 100);
         std::cout << "Before assignment: " << assigned << std::endl;
         assigned = original;
@@ -112,14 +112,14 @@ int main(){
         std::cout << topGrade << std::endl;
         std::cout << bottomGrade << std::endl;
         
-        // Try to increment top grade (should fail)
+ 
         try {
             topGrade.incrementGrade();
         } catch (Bureaucrat::GradeTooHighException &e) {
             std::cout << "Can't promote top grade: " << e.what() << std::endl;
         }
         
-        // Try to decrement bottom grade (should fail)
+   
         try {
             bottomGrade.decrementGrade();
         } catch ( Bureaucrat::GradeTooLowExecption &e){

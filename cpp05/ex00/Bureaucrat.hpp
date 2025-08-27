@@ -24,16 +24,12 @@ class Bureaucrat{
         
       class GradeTooHighException : public std::exception{
             public:
-                 virtual const char* what()  const throw(){ 
-                       return "Grade is too high! (Must be between 1 and 150)";
-                 }
+                 virtual const char* what()  const throw();
         };
       class GradeTooLowExecption: public std::exception{
      
                 public: 
-                    virtual const char* what() const throw(){
-                          return "Grade is too low! (Must be between 1 and 150)";
-                    }
+                    virtual const char* what() const throw();
           };
 
 

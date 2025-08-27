@@ -1,9 +1,14 @@
 
 
 define BANNER
-             ___  __    ___            __   ___ 
-| |\ | |__| |__  |__) |  |   /\  |\ | /  ` |__  
-| | \| |  | |___ |  \ |  |  /~~\ | \| \__, |___ 
+  ____                                            _   
+ |  _ \                                          | |  
+ | |_) |_   _ _ __ ___  __ _ _   _  ___ _ __ __ _| |_ 
+ |  _ <| | | | '__/ _ \/ _` | | | |/ __| '__/ _` | __|
+ | |_) | |_| | | |  __/ (_| | |_| | (__| | | (_| | |_ 
+ |____/ \__,_|_|  \___|\__,_|\__,_|\___|_|  \__,_|\__|
+                                                      
+                                                      
                                                                                                
         Made with love by: hbendjab     
 endef
@@ -31,7 +36,7 @@ RESET		=	\e[0m
 CURSIVE		=	\e[33;3m
 
 all: $(NAME)
-	@printf "$(GREEN)- Fixed ready!$(RESET)\n"
+	@printf "$(GREEN)- Bureaucrat ready!$(RESET)\n"
 	@echo "$$BANNER"
 
 $(NAME): $(OBJ)
