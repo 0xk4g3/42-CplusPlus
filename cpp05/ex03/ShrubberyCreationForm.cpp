@@ -51,6 +51,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat &src) const {
     shrubberyFile << "        ||||" << std::endl;
     shrubberyFile << "        ||||" << std::endl;
     shrubberyFile << "        ||||" << std::endl;
+    shrubberyFile.close();
   } else {
     throw std::runtime_error("Failed to create shrubbery file");
   }

@@ -1,96 +1,89 @@
 
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
+Bureaucrat::Bureaucrat() : _name("Default"), _grade(20) {
 
-Bureaucrat::Bureaucrat():_name("Default"),_grade(20){ 
-        
-        std::cout<< "Bureaucrat default constructor called" << std::endl;
+  std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 
+Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name) {
 
+  std::cout << "Bureaucrat constructor called for " << name << std::endl;
 
-Bureaucrat::Bureaucrat(const std::string& name , int grade):_name(name){
-       
-    std::cout << "Bureaucrat constructor called for " << name << std::endl; 
-   
-    if(grade < 1 )
-            throw GradeTooHighException();
-    if(grade > 150)
-            throw GradeTooLowExecption();
-        _grade = grade;
-    
+  if (grade < 1)
+    throw GradeTooHighException();
+  if (grade > 150)
+    throw GradeTooLowException();
+  _grade = grade;
+}
+const char *Bureaucrat::GradeTooHighException::what() const throw() {
+
+  return "Grade is too high! (Must be between 1 and 150)";
+}
+const char *Bureaucrat::GradeTooLowException::what() const throw() {
+
+  return "Grade is too low! (Must be between 1 and 150)";
 }
 
+//----> Getter start <-----//
 
-//----> Getter start <-----//  
+std::string Bureaucrat::getName() const { return (_name); }
 
-std::string Bureaucrat::getName()const { 
-   
-        return (_name);
-}
-
-int Bureaucrat::getGrade() const{
-    
-    return (_grade);
-}
+int Bureaucrat::getGrade() const { return (_grade); }
 //----> End Of Getters <----//
 
+void Bureaucrat::incrementGrade() {
 
-void Bureaucrat::incrementGrade(){
+  if (_grade - 1 < 1)
+    throw GradeTooHighException();
 
-        if(_grade -1 < 1) 
-           throw GradeTooHighException();
-        
-        _grade--;
+  _grade--;
   std::cout << _name << " promoted to grade " << _grade << std::endl;
 }
 
 void Bureaucrat::decrementGrade() {
-    if(_grade + 1 > 150)
-       throw GradeTooLowExecption(); 
-    _grade++;
-    std::cout << _name << " demoted to grade " << _grade << std::endl;
+  if (_grade + 1 > 150)
+    throw GradeTooLowException();
+  _grade++;
+  std::cout << _name << " demoted to grade " << _grade << std::endl;
 }
 
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other) {
 
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other){ 
-
-       if(this != &other){
-          _grade = other._grade;
-
-       }
-     return *this;
+  if (this != &other) {
+    _grade = other._grade;
+  }
+  return *this;
 }
-Bureaucrat::Bureaucrat(const Bureaucrat& other):_name(other._name),_grade(other._grade){ 
-             
-     std::cout << "Bureaucrat copy constructor called" << std::endl;
-}
+Bureaucrat::Bureaucrat(const Bureaucrat &other)
+    : _name(other._name), _grade(other._grade) {
 
-//destructor
-Bureaucrat::~Bureaucrat(){
-     
-std::cout << "Bureaucrat destructor called for " << _name << std::endl;
+  std::cout << "Bureaucrat copy constructor called" << std::endl;
 }
 
-void Bureaucrat::signForm(Form& form){
+// destructor
+Bureaucrat::~Bureaucrat() {
 
-    try{ 
-        form.beSigned(*this);
+  std::cout << "Bureaucrat destructor called for " << _name << std::endl;
+}
+
+void Bureaucrat::signForm(Form &form) {
+
+  try {
+    form.beSigned(*this);
     std::cout << _name << " signed " << form.getName() << std::endl;
-    }catch(std::exception& e){
-            
-  std::cout << _name << " couldn't sign " << form.getName() 
-                  << " because " << e.what() << std::endl;
+  } catch (std::exception &e) {
 
-    }
+    std::cout << _name << " couldn't sign " << form.getName() << " because "
+              << e.what() << std::endl;
+  }
 }
 
-//Ostream
-std::ostream& operator<<(std::ostream& out , const Bureaucrat& Bureaucrat){
-        
-     out  << Bureaucrat.getName() << ", bureaucrat grade " << Bureaucrat.getGrade() << std::endl;
-    return out;
+// Ostream
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &Bureaucrat) {
+
+  out << Bureaucrat.getName() << ", bureaucrat grade " << Bureaucrat.getGrade()
+      << std::endl;
+  return out;
 }
-
-
-

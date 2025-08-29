@@ -1,7 +1,7 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-#include "AForm.hpp"
+class AForm;
 #include <iostream>
 class Bureaucrat {
 private:
@@ -23,16 +23,12 @@ public:
   void signForm(AForm &form);
   class GradeTooHighException : public std::exception {
   public:
-    virtual const char *what() const throw() {
-      return "Grade is too high! (Must be between 1 and 150)";
-    }
+    virtual const char *what() const throw();
   };
-  class GradeTooLowExecption : public std::exception {
+  class GradeTooLowException : public std::exception {
 
   public:
-    virtual const char *what() const throw() {
-      return "Grade is too low! (Must be between 1 and 150)";
-    }
+    virtual const char *what() const throw();
   };
 };
 

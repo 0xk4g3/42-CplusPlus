@@ -14,7 +14,7 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name) {
   if (grade < 1)
     throw GradeTooHighException();
   if (grade > 150)
-    throw GradeTooLowExecption();
+    throw GradeTooLowException();
   _grade = grade;
 }
 
@@ -36,11 +36,18 @@ void Bureaucrat::incrementGrade() {
 
 void Bureaucrat::decrementGrade() {
   if (_grade + 1 > 150)
-    throw GradeTooLowExecption();
+    throw GradeTooLowException();
   _grade++;
   std::cout << _name << " demoted to grade " << _grade << std::endl;
 }
+const char *Bureaucrat::GradeTooHighException::what() const throw() {
 
+  return "Grade is too high! (Must be between 1 and 150)";
+}
+const char *Bureaucrat::GradeTooLowException::what() const throw() {
+
+  return "Grade is too low! (Must be between 1 and 150)";
+}
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other) {
 
   if (this != &other) {

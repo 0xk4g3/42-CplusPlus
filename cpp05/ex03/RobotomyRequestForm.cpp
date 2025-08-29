@@ -1,6 +1,6 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("Roboto", 72, 45) {
+RobotomyRequestForm::RobotomyRequestForm() : AForm("Robotomy request", 72, 45) {
   std::cout << "Constroctur Called" << std::endl;
 }
 
@@ -9,7 +9,6 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string &target)
 
   std::cout << "constructor called" << std::endl;
 }
-
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src)
     : AForm(src), _target(src._target) {
@@ -25,11 +24,6 @@ RobotomyRequestForm::operator=(const RobotomyRequestForm &src) {
   }
   return (*this);
 }
-/* --------------------------
-  TODO: :
-    1) we need to check the exceptions the correct message they need to throw
-  FIXME:  also check the   other cases must be
------------------------*/
 void RobotomyRequestForm::execute(const Bureaucrat &executor) const {
 
   if (!this->getIsSigned())
