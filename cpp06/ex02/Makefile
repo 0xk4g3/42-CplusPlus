@@ -1,25 +1,27 @@
 
 
 define BANNER
-    ____                          _   
-  / ___|___  _ ____   _____ _ __| |_ 
- | |   / _ \| '_ \ \ / / _ \ '__| __|
- | |__| (_) | | | \ V /  __/ |  | |_ 
-  \____\___/|_| |_|\_/ \___|_|   \__|
+      _                             _                       _   
+  __| |_   _ _ __   __ _ _ __ ___ (_) ___     ___ __ _ ___| |_ 
+ / _` | | | | '_ \ / _` | '_ ` _ \| |/ __|   / __/ _` / __| __|
+| (_| | |_| | | | | (_| | | | | | | | (__   | (_| (_| \__ \ |_ 
+ \__,_|\__, |_| |_|\__,_|_| |_| |_|_|\___|___\___\__,_|___/\__|
+       |___/                            |_____|                
                                      
     Made with love by: hbendjab     
 endef
 
 export BANNER
 
-NAME		= Convert
+NAME		= Base
+
 CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98 
 RM			= rm -rf
 
 OBJDIR		= .objfiles
 
-FILES		= main  ScalarConverter Converter TheChecker 
+FILES		= main Base 
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
 
@@ -31,7 +33,7 @@ RESET		=	\e[0m
 CURSIVE		=	\e[33;3m
 
 all: $(NAME)
-	@printf "$(GREEN)- Bureaucrat ready!$(RESET)\n"
+	@printf "$(GREEN)- Base ready!$(RESET)\n"
 	@echo "$$BANNER"
 
 $(NAME): $(OBJ)

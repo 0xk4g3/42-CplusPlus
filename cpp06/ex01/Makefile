@@ -1,25 +1,26 @@
 
 
 define BANNER
-    ____                          _   
-  / ___|___  _ ____   _____ _ __| |_ 
- | |   / _ \| '_ \ \ / / _ \ '__| __|
- | |__| (_) | | | \ V /  __/ |  | |_ 
-  \____\___/|_| |_|\_/ \___|_|   \__|
+  _________            .__       .__  .__                
+ /   _____/ ___________|__|____  |  | |__|_______ ____   
+ \_____  \_/ __ \_  __ \  \__  \ |  | |  \___   // __ \  
+ /        \  ___/|  | \/  |/ __ \|  |_|  |/    /\  ___/  
+/_______  /\___  >__|  |__(____  /____/__/_____ \\___  > 
+        \/     \/              \/              \/    \/  
                                      
     Made with love by: hbendjab     
 endef
 
 export BANNER
 
-NAME		= Convert
+NAME		= Serialize
 CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98 
 RM			= rm -rf
 
 OBJDIR		= .objfiles
 
-FILES		= main  ScalarConverter Converter TheChecker 
+FILES		= main Serialize 
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
 
@@ -31,7 +32,7 @@ RESET		=	\e[0m
 CURSIVE		=	\e[33;3m
 
 all: $(NAME)
-	@printf "$(GREEN)- Bureaucrat ready!$(RESET)\n"
+	@printf "$(GREEN)- Serialize ready!$(RESET)\n"
 	@echo "$$BANNER"
 
 $(NAME): $(OBJ)
