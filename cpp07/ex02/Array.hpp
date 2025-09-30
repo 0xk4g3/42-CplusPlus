@@ -37,7 +37,7 @@ public:
   Array &operator=(const Array &src) {
 
     if (this != &src) {
-
+      delete this->m_data;
       _n = src._n;
       if (_n > 0) {
 
