@@ -1,27 +1,28 @@
 
 
 define BANNER
-   ______                ______ _           _ 
- |  ____|              |  ____(_)         | |
- | |__   __ _ ___ _   _| |__   _ _ __   __| |
- |  __| / _` / __| | | |  __| | | '_ \ / _` |
- | |___| (_| \__ \ |_| | |    | | | | | (_| |
- |______\__,_|___/\__, |_|    |_|_| |_|\__,_|
-                   __/ |                     
-                  |___/ 
+    
+   _____  _____  _   _ 
+ |  __ \|  __ \| \ | |
+ | |__) | |__) |  \| |
+ |  _  /|  ___/| . ` |
+ | | \ \| |    | |\  |
+ |_|  \_\_|    |_| \_|
+                      
+                      
   Made with love by: hbendjab     
 endef
 
 export BANNER
 
-NAME		= easyfind
+NAME		= RPN
 CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98 
 RM			= rm -rf
 
 OBJDIR		= .objfiles
 
-FILES		= main  
+FILES		= main  RPN  
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
 
@@ -33,7 +34,7 @@ RESET		=	\e[0m
 CURSIVE		=	\e[33;3m
 
 all: $(NAME)
-	@printf "$(GREEN)- easyfind ready!$(RESET)\n"
+	@printf "$(GREEN)- Bitcoin ready!$(RESET)\n"
 	@echo "$$BANNER"
 
 $(NAME): $(OBJ)
