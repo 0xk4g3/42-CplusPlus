@@ -1,6 +1,7 @@
 #ifndef RPN_HPP
 #define RPN_HPP
 #include <climits>
+#include <cstdlib>
 #include <iostream>
 #include <sstream>
 #include <stack>

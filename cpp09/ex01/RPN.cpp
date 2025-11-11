@@ -28,20 +28,10 @@ bool RPN::isNumber(const std::string &token) {
 
   if (token.empty())
     return false;
-  if (token.length() != 1)
-    return false;
-  size_t i = 0;
-  if (token[0] == '-' || token[0] == '+') {
-    if (token.length() == 1)
-      return false;
-    i = 1;
-  }
-  while (i < token.length()) {
-
+  for (size_t i = 0; i < token.length(); i++) {
+    // If any character is NOT a digit, return false
     if (!std::isdigit(token[i]))
       return false;
-
-    i++;
   }
   return true;
 }
@@ -71,7 +61,7 @@ void RPN::evalute(const std::string &expression) {
 
     if (isNumber(token)) {
 
-      long num = std::atol(token.c_str());
+      long num = atol(token.c_str());
       if (num >= 10 || num < 0)
         throw std::runtime_error("Error: numbers must be less than 10");
 
