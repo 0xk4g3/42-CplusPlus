@@ -73,7 +73,7 @@ void PmergeMe::sort(int argc, char **argv) {
   nbr_of_comps = 0;
   struct timeval vec_start, vec_end;
   gettimeofday(&vec_start, NULL);
-  mergeInsertionSort(_vectorData, 1); // Start with pair_level = 1!
+  mergeInsertionSort(_vectorData, 1);
   gettimeofday(&vec_end, NULL);
   double vec_time = (vec_end.tv_sec - vec_start.tv_sec) * 1000000.0 +
                     (vec_end.tv_usec - vec_start.tv_usec);
@@ -82,7 +82,7 @@ void PmergeMe::sort(int argc, char **argv) {
   nbr_of_comps = 0;
   struct timeval deq_start, deq_end;
   gettimeofday(&deq_start, NULL);
-  mergeInsertionSort(_dequeData, 1); // Start with pair_level = 1!
+  mergeInsertionSort(_dequeData, 1);
   gettimeofday(&deq_end, NULL);
   double deq_time = (deq_end.tv_sec - deq_start.tv_sec) * 1000000.0 +
                     (deq_end.tv_usec - deq_start.tv_usec);

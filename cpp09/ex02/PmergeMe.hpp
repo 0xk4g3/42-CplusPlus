@@ -34,7 +34,8 @@ private:
 
     int pair_units_nbr = continer.size() / pair_level;
 
-    if (pair_units_nbr < 2)
+    if (pair_units_nbr <
+        2) // INFO: avoid the stack overFlow (stop the recursive)
       return;
 
     bool is_odd = pair_units_nbr % 2 == 1;
@@ -55,7 +56,10 @@ private:
         swapPair(this_pair, pair_level);
       }
     }
+    // here im going to do the  recursive for the same container but each time
+    // jump in the  pair  2 4 8 16 ..etc until it reach to the end
     mergeInsertionSort(continer, pair_level * 2);
+
     std::vector<Iterator> main;
     std::vector<Iterator> pend;
 
@@ -90,9 +94,12 @@ private:
 
       while (nbr_of_times) {
         typename std::vector<Iterator>::iterator idx = std::upper_bound(
-            main.begin(), bound_it, *pend_it, compare<Iterator>);
+            main.begin(), bound_it, *pend_it, compare<Iterator>); // we need to
+        // look where teh idx should be inserted  in the main using the
+        // upper_bound binary search
         typename std::vector<Iterator>::iterator inserted =
-            main.insert(idx, *pend_it);
+            main.insert(idx, *pend_it); // here just we inserted in the position
+        // idx
 
         nbr_of_times--;
         pend_it = pend.erase(pend_it);
@@ -115,6 +122,10 @@ private:
           main.begin(), curr_bound, *curr_pend, compare<Iterator>);
       main.insert(idx, *curr_pend);
     }
+
+    // here just we make the vectory ready for the next call because the stack
+    // scope it will destroy after the scope finish we need to protect the data
+    // by  rearagange the main vectory for the next call
     std::vector<int> copy;
     copy.reserve(continer.size());
 
@@ -127,7 +138,6 @@ private:
       }
     }
 
-    // Replace values in original container
     Iterator container_it = continer.begin();
     std::vector<int>::iterator copy_it = copy.begin();
     while (copy_it != copy.end()) {

@@ -26,7 +26,6 @@ void BitcoinExchange::loadDatabase(const std::string &fileName) {
     return;
   }
   std::string line;
-  // std::getline(file, line);
   if (!std::getline(file, line)) {
     std::cerr << "Error: empty database file." << std::endl;
     file.close();
@@ -189,7 +188,6 @@ bool BitcoinExchange::isValidNumberString(const std::string &str) {
 
   size_t i = 0;
 
-  // Check for optional minus sign
   if (str[0] == '-' || str[0] == '+')
     i++;
 
