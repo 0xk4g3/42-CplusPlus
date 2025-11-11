@@ -42,6 +42,8 @@ long RPN::performOperation(long a, long b, char op) {
   case '-':
     return a - b;
   case '*':
+    if (a != 0 && std::abs(b) > LONG_MAX / std::abs(a))
+      throw std::runtime_error("Error: multiplication overflow");
     return (a * b) / SCALE;
 
   case '/':
